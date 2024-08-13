@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>slide-bar</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+</head>
+<style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: poppins;
+    }
+    html,
+    body {
+        position: relative;
+        height: 100%;
+    }
+
+    body {
+        background: #eee;
+        font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+        font-size: 14px;
+        color: #000;
+        margin: 0;
+        padding: 0;
+    }
+
+    .swiper {
+        width: 100%;
+        height: 100%;
+    }
+
+    .swiper-slide {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    .swiper-slide img {
+        display: block;
+        width: 100%;
+    }
+
+    @media only screen and (min-width: 769px) {
+        .swiper-slide:first-child {
+            transition: transform 100ms;
+        }
+
+        .swiper-slide:first-child img {
+            transition: box-shadow 500ms;
+        }
+
+        .swiper-slide.swiper-slide-active:first-child {
+            transform: translateX(50%);
+            z-index: 2;
+        }
+
+        .swiper-slide.swiper-slide-active:first-child img {
+            box-shadow: 0px 32px 80px rgba(0, 0, 0, 0.35);
+        }
+
+        .swiper-slide:nth-child(2) {
+            transition: transform 100ms;
+        }
+
+        .swiper-slide.swiper-slide-next:nth-child(2) {
+            transform: translateX(55%);
+            z-index: 1;
+        }
+
+        .swiper[dir="rtl"] .swiper-slide.swiper-slide-active:first-child {
+            transform: translateX(-50%);
+        }
+
+        .swiper[dir="rtl"] .swiper-slide.swiper-slide-next:nth-child(2) {
+            transform: translateX(-55%);
+        }
+    }
+
+    .p20 {
+        padding:10px 50px;
+        text-align: center;
+    }
+</style>
+
+<body>
+    <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+               <h1 class="p20">introduction of nature</h1>
+               <p class="p20">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae similique velit placeat enim mollitia magni temporibus officiis sunt praesentium? Ipsa itaque vitae at culpa voluptatum soluta sed ad mollitia repellendus.</p>
+            </div>
+            <div class="swiper-slide">
+                <img src="https://images.pexels.com/photos/1266810/pexels-photo-1266810.jpeg?cs=srgb&dl=pexels-8moments-1266810.jpg&fm=jpg" />
+                
+            </div>
+            <div class="swiper-slide">
+                <h1 class="p20">nature - dont have any type of boundry</h1>
+                <p class="p20">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae similique velit placeat enim mollitia magni temporibus officiis sunt praesentium? Ipsa itaque vitae at culpa voluptatum soluta sed ad mollitia repellendus.</p>
+            </div>
+            <div class="swiper-slide">
+                <h1 class="p20">nature - have a perfact healing power</h1>
+                <p class="p20">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae similique velit placeat enim mollitia magni temporibus officiis sunt praesentium? Ipsa itaque vitae at culpa voluptatum soluta sed ad mollitia repellendus.</p>
+            </div>
+            <div class="swiper-slide">
+                <img src="https://i0.wp.com/picjumbo.com/wp-content/uploads/beautiful-nature-scenery-smartphone-wallpaper-free-photo.jpg?w=2210&quality=70" />
+            </div>
+           
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-scrollbar"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        centeredSlides: false,
+        slidesPerGroupSkip: 1,
+        grabCursor: true,
+        loop: true,
+        autoplay:true,
+        keyboard: {
+            enabled: true,
+        },
+        breakpoints: {
+            769: {
+                slidesPerView: 2,
+                slidesPerGroup: 2,
+            },
+        },
+        scrollbar: {
+            el: ".swiper-scrollbar",
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+    });
+</script>
+
+</html>
